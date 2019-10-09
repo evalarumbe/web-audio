@@ -1,0 +1,23 @@
+#play {
+    width: 250px;
+    height: 250px;
+    background-color: greenyellow;
+    font-size: 1.5em;
+    color: green;
+}
+
+#play:hover {
+    cursor: pointer;
+}
+
+#stop {
+    width: 250px;
+    height: 250px;
+    background-color: palevioletred;
+    font-size: 1.5em;
+    color: darkred;
+}
+
+#stop:hover {
+    cursor: pointer;
+}
