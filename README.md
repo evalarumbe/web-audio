@@ -1,3 +1,3 @@
-Just an experiment :)
+Just an experiment :) You might wanna start with your volume down.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/evalarumbe/web-audio)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://web-audio-experiment.netlify.com/)
