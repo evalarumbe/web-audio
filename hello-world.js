@@ -18,11 +18,10 @@ window.onload = () => {
 
     // Create oscillator node
 
-    var oscillator = context.createOscillator();
+    const oscillator = context.createOscillator();
 
     oscillator.type = 'sawtooth';
     oscillator.frequency.value = 440;
     oscillator.connect(context.destination);
     oscillator.start();
-
 };
