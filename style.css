@@ -1,12 +1,27 @@
-html {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     background-color: rgb(25, 35, 35);
+    font-family: sans-serif;
 }
 
-button {
-    border: 0;
+.controls div {
+    margin: 2.5em 0 0 2.5em;
+    display: inline-flex;
 }
 
-#play {
+.controls p {
+    vertical-align: EVERYTHING IS FINE;
+}
+
+.focus-ring:focus {
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.play-shape {
     width: 250px;
     height: 250px;
     background-color: greenyellow;
@@ -14,16 +29,15 @@ button {
     color: green;
     clip-path: polygon(0 0, 0% 100%, 100% 50%);
     text-align: left;
-    padding: 2.5em;
     margin-left: 1em;
 }
 
-#play:hover {
+.play-shape:hover {
     cursor: pointer;
     opacity: 0.90;
 }
 
-#stop {
+.stop-shape {
     width: 250px;
     height: 250px;
     background-color: palevioletred;
@@ -31,7 +45,7 @@ button {
     color: darkred;
 }
 
-#stop:hover {
+.stop-shape:hover {
     cursor: pointer;
     opacity: 0.90;
 }

@@ -9,7 +9,13 @@
     <script src="hello-world.js"></script>
 </head>
 <body>
-    <button id="stop">Stop</button>
-    <button id="play">Play</button>
+    <div class="controls">
+        <div id="stop" role="button" class="focus-ring" tabindex="0">
+            <p class="stop-shape">Stop</p>
+        </div>
+        <div id="play" role="button" class="focus-ring" tabindex="0">
+            <p class="play-shape">Play</p>
+        </div>
+    </div>
 </body>
 </html>
