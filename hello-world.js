@@ -6,6 +6,7 @@ window.onload = () => {
     // UI Buttons
     document.querySelector('#play').addEventListener('click', () => {
         context.resume().then(() => {
+            oscillator.start();
             console.log('Playback resumed successfully');
         });
     });
@@ -23,5 +24,4 @@ window.onload = () => {
     oscillator.type = 'sawtooth';
     oscillator.frequency.value = 440;
     oscillator.connect(context.destination);
-    oscillator.start();
 };
