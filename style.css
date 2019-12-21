@@ -8,44 +8,26 @@ body {
     font-family: sans-serif;
 }
 
-.controls div {
-    margin: 2.5em 0 0 2.5em;
-    display: inline-flex;
+.controls {
+    display: flex;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
 }
 
-.controls p {
-    vertical-align: EVERYTHING IS FINE;
-}
-
-.focus-ring:focus {
-    outline: -webkit-focus-ring-color auto 5px;
-}
-
-.play-shape {
-    width: 250px;
-    height: 250px;
-    background-color: greenyellow;
-    font-size: 1.5em;
-    color: green;
-    clip-path: polygon(0 0, 0% 100%, 100% 50%);
-    text-align: left;
+#play {
     margin-left: 1em;
 }
 
-.play-shape:hover {
+#play:hover {
     cursor: pointer;
     opacity: 0.90;
 }
 
-.stop-shape {
-    width: 250px;
-    height: 250px;
-    background-color: palevioletred;
-    font-size: 1.5em;
-    color: darkred;
+#stop {
 }
 
-.stop-shape:hover {
+#stop:hover {
     cursor: pointer;
     opacity: 0.90;
 }
