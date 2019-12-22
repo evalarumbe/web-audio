@@ -9,10 +9,14 @@ window.onload = () => {
     oscillator.frequency.value = 440;
     oscillator.start();
 
+    const play = () => {
+        oscillator.connect(ctx.destination);
+    };
+
     // UI Buttons
     document.querySelector('#play').addEventListener('click', () => {
         ctx.resume().then(() => {
-            oscillator.connect(ctx.destination);
+            play();
             console.log('Playback resumed successfully');
         });
     });
@@ -22,5 +26,4 @@ window.onload = () => {
             console.log('Playback suspended successfully');
         });
     });
-
 };
