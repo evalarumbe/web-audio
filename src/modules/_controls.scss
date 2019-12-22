@@ -1,0 +1,23 @@
+@use "../variables/colors" as *;
+
+
+// controls
+
+.controls {
+    display: flex;
+    height: 30vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#play {
+    margin-left: 1em;
+}
+
+.controls svg:hover {
+    filter: brightness(120%);
+}
+
+.controls svg:active {
+    filter: brightness(90%);
+}

@@ -1,0 +1,9 @@
+@use "sass:color";
+
+$candy: rgb(235, 48, 110);
+$bright-candy: color.scale($candy, $lightness: 30%);
+$dark-candy: color.scale($candy, $lightness: -30%);
+
+$aqua: #4AE3B5;
+$bright-aqua: color.scale($aqua, $lightness: 30%);
+$dark-aqua: color.scale($aqua, $lightness: -30%);

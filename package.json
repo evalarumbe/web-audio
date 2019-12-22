@@ -1,0 +1,23 @@
+{
+  "name": "web-audio-api",
+  "version": "1.0.0",
+  "description": "Just an experiment :) You might wanna start with your volume down.",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-css": "dart-sass --watch src/style.scss style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evalarumbe/web-audio.git"
+  },
+  "author": "Eva Larumbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evalarumbe/web-audio/issues"
+  },
+  "homepage": "https://github.com/evalarumbe/web-audio#readme",
+  "devDependencies": {
+    "dart-sass": "^1.24.0"
+  }
+}
