@@ -8,10 +8,12 @@
     height: 50vh;
     justify-content: center;
     align-items: center;
-}
 
-#play {
-    margin-left: 1em;
+    svg {
+        &:not(:first-of-type) {
+            margin-left: 1em;
+        }
+    }
 }
 
 .controls svg:hover {
