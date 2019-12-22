@@ -5,13 +5,6 @@ window.onload = () => {
 
     // UI Buttons
     document.querySelector('#play').addEventListener('click', () => {
-
-        /** 
-         * TODO: what changes about the SVG on press?
-         *  
-         * drop shadow
-         * inner shadow
-         */
         
         context.resume().then(() => {
             console.log('Playback resumed successfully');
