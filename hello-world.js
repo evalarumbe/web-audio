@@ -7,27 +7,43 @@ window.onload = () => {
     const oscillator = ctx.createOscillator();
     oscillator.type = 'sawtooth';
     oscillator.frequency.value = 440;
-
-    // begin managing time
-    const now = ctx.currentTime;
-
-    oscillator.start(now);
-
-    // create and configure gain node
-    const gain = ctx.createGain();
-
+    
+    oscillator.start();
+    
+    
     const play = () => {
+        // create and configure gain node
+        const gain = ctx.createGain();
+        
+        // begin managing time
+        // const now = ctx.currentTime;
+
+        // // manage volume
+        // gain.gain.setValueAtTime(1, now);
+        // gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
+
         // chain everything
         oscillator.connect(gain);
         gain.connect(ctx.destination);
+    };
+
+    const playTinFuzz = () => {
+        // create and configure gain node
+        const gain = ctx.createGain();
+        
+        // begin managing time
+        const now = ctx.currentTime;
 
         // manage volume
         gain.gain.setValueAtTime(1, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
 
+        // chain everything
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
     };
 
-    // UI Buttons
+    // Controls
     document.querySelector('#play').addEventListener('click', () => {
         ctx.resume().then(() => {
             play();
@@ -38,6 +54,14 @@ window.onload = () => {
     document.querySelector('#stop').addEventListener('click', () => {
         ctx.suspend().then(() => {
             console.log('Playback suspended successfully');
+        });
+    });
+
+    // Experiments
+    document.querySelector('#tin-fuzz').addEventListener('click', () => {
+        ctx.resume().then(() => {
+            playTinFuzz();
+            console.log('Played tin fuzz');
         });
     });
 };

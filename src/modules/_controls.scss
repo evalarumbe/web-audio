@@ -16,10 +16,20 @@
     }
 }
 
-.controls svg:hover {
+.controls svg:hover,
+.experiments svg:hover {
     filter: brightness(120%);
 }
 
-.controls svg:active {
+.controls svg:active,
+.experiments svg:active {
     filter: brightness(90%);
+}
+
+// experiments
+
+.experiments {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
