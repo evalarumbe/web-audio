@@ -1,33 +1,15 @@
-window.onload = () => {
+(() => {
     // create audio context
     const ctx = new AudioContext();
     // const context = new (window.AudioContext || window.webkitAudioContext)(); // TODO: if not working on Safari, try this
-
-    // create and configure oscillator source
-    const oscillator = ctx.createOscillator();
-    oscillator.type = 'sawtooth';
-    oscillator.frequency.value = 440;
-    
-    oscillator.start();
     
     
     const play = () => {
-        // create and configure gain node
-        const gain = ctx.createGain();
-        
-        // begin managing time
-        // const now = ctx.currentTime;
+        // create and configure oscillator source
+        const oscillator = ctx.createOscillator();
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.value = 250;
 
-        // // manage volume
-        // gain.gain.setValueAtTime(1, now);
-        // gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
-
-        // chain everything
-        oscillator.connect(gain);
-        gain.connect(ctx.destination);
-    };
-
-    const playTinFuzz = () => {
         // create and configure gain node
         const gain = ctx.createGain();
         
@@ -35,12 +17,59 @@ window.onload = () => {
         const now = ctx.currentTime;
 
         // manage volume
+        gain.gain.setValueAtTime(0.5, now);
+        gain.gain.exponentialRampToValueAtTime(0.03, now + 0.5)
+
+        // chain everything
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
+        oscillator.start();
+    };
+    
+    const playBuzz = () => {
+        const now = ctx.currentTime;
+
+        // create and configure oscillator source
+        const oscillator = ctx.createOscillator();
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.value = 440;
+
+        // create and configure gain node
+        const gain = ctx.createGain();
         gain.gain.setValueAtTime(1, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
 
         // chain everything
         oscillator.connect(gain);
         gain.connect(ctx.destination);
+
+        // once everything's plugged in, turn it on
+        oscillator.start(0);
+        oscillator.stop(now + 1);
+        // oscillator.disconnect(0);
+    };
+    
+    const playTinFuzz = () => {
+        const now = ctx.currentTime;
+
+        // create and configure oscillator source
+        const oscillator = ctx.createOscillator();
+        oscillator.type = 'sawtooth';
+        oscillator.frequency.value = 440;
+
+        // create and configure gain node
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5)
+
+        // chain everything
+        oscillator.connect(gain);
+        gain.connect(ctx.destination);
+
+        // once everything's plugged in, turn it on
+        oscillator.start(0);
+        oscillator.stop(now + 1);
+        // oscillator.disconnect(1);
     };
 
     // Controls
@@ -58,10 +87,21 @@ window.onload = () => {
     });
 
     // Experiments
+    document.querySelector('#buzz').addEventListener('click', () => {
+        ctx.resume().then(() => {
+            playBuzz();
+            console.log('Played buzz');
+        });
+    });
+
     document.querySelector('#tin-fuzz').addEventListener('click', () => {
         ctx.resume().then(() => {
             playTinFuzz();
             console.log('Played tin fuzz');
         });
     });
-};
+
+    // Auto-play
+    // With this running in live-server you can live-update frequencies, i.e. live-code music
+    // document.querySelector('#play').dispatchEvent(new MouseEvent('click'));
+})();
