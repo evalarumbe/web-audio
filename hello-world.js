@@ -12,6 +12,30 @@ try {
 
     console.log('When you pick back up next time: Hit record a bunch of times and look at the console for a refresher on what this does');
 
+    /**
+     * GOAL
+     * ----
+     * 
+     * We're making a keyboard-playable instrument (like pads).
+     * 
+     * The logic we have on the record button now, will be set to specific sound pads instead.
+     * User hits pads to create recordings: Each key press creates a new Note. The start and stop times come from clicking to toggle record.
+     *                                                                         Each Note will have a new property: 'sound' so it knows what sound to make.
+     * 
+     *                                                        Once that works: The start and stop times come from keyDown and keyUp.
+     *                                                                         Update the UI so it's clear which key corresponds to which sound.
+     * 
+     * 
+     * The record button will have new functionality:
+     * User sets recording mode to ON. No notes are saved yet, we're just on standby. Maybe show a ticking timer, make the Rec button glow, whatever. WE ARE ON THE AIR.
+     * The sound pads always make noise, but they only save to the array when recording mode is on.
+     * 
+     * 
+     */
+
+
+
+
     function Note(startTime = null, stopTime = null) {
       return {
         start: startTime,
